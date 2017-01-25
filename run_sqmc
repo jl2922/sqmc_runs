@@ -1,0 +1,9 @@
+#!/bin/bash
+for file in $*
+do
+  in=$file
+  out=`echo $in | sed -e 's/i/o/'`
+  out=$out.out
+# nohup srun /data/cyrus/fciqmc/fciqmc < $in > $out
+  nohup /home/junhao/sqmc/src/sqmc < $in > $out 2>&1 &
+done
